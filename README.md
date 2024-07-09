@@ -1,6 +1,4 @@
-# CZ
-
-## Servisní kniha
+# Servisní kniha - CZ
 Jedná se o můj první vlastní projekt, díky kterému jsem se naučil používat Spring boot a procvičil programovací jazyk: Java a tvorbu webových stránek.
 Jedná se o aplikaci "Servisní knihy" která napomáhá v soukromém životě se zavedením servisní historie svých vozů.
 
@@ -27,9 +25,7 @@ Pokud si ji zkusíte, určitě budu rád za konstruktivní kritiku, která mě p
 
 Děkuji
 
-# EN
-
-## Car Service Book
+# Car Service Book - EN
 
 This is my first personal project through which I learned to use Spring Boot and practiced the Java programming language along with web development skills.
 
