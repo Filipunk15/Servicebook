@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Servisní knížka</title>
+<link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+	<header>
+		<h1>Vítejte v Servisní knížce</h1>
+	</header>
+	<nav>
+		<a th:if="${currentUser == null}" th:href="@{/login}">Přihlášení</a> 
+	    <a class="buttona" th:href="@{/add-record}">Přidat záznam do servisní knihy</a>
+	       
+            <div th:if="${currentUser != null}" class="login-div">
+                <p>Uživatel: <a th:href="@{/account}" th:text="${currentUser}"></a></p>
+                <form class="My-form" th:action="@{/logout}" method="post">
+                    <button type="submit">Odhlásit se!</button>
+                </form>
+            </div>
+	</nav>
+	<main>
+		<h2>Servisní záznamy:</h2>
+		 <table>
+            <thead>
+                <tr>
+                    <th>Datum</th>
+                    <th>Popis</th>
+                    <th>Kilometry</th>
+                    <th>Auto</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="record : ${records}">
+                    <td th:text="${record.datum_opravy}"></td>
+                    <td th:text="${record.popis_opravy}"></td>
+                    <td th:text="${record.najezd_pri_oprave}"></td>
+                    <td>
+                        <span th:text="${record.car.znacka} + ' ' + ${record.car.model} "></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+	</main>
+</body>
+</html>

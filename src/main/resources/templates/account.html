@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Servisní Kniha - Nastavení účtu</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <header>
+        <h1>Nastavení účtu</h1>
+    </header>
+    <nav>
+        <a class="buttona" th:href="@{/}">Domů</a>
+    </nav>
+    <main>
+        <form th:action="@{/update-account}" method="post" th:object="${user}">
+        
+            <div>
+            	<input type="hidden" th:field="*{id}" />
+                <label for="username">Jméno:</label>
+                <input type="text" id="username" name="username" th:field="*{username}" required>
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" th:field="*{email}" required>
+            </div>
+            <div>
+                <label for="password">Nové heslo:</label>
+                <input type="password" id="password" name="password" th:field="*{password}">
+            </div>
+            <div>
+                <button type="submit">Uložit změny</button>
+            </div>
+        </form>
+	<form th:action="@{/delete-account}" method="post" th:object="${user}">
+		<div>
+        <button type="submit">Odstranit účet</button>
+        </div>
+	</form>
+	
+        <h2>Moje auta</h2>
+        <ul>
+            <li th:each="car : ${cars}">
+                <span th:text="${car.znacka}">Značka</span>   
+                <span th:text="${car.model}">Model</span>
+                <span th:text="${car.rok_vyroby}">Rok</span>   
+                <span th:text="${car.pocet_km}">Pocet_km</span>
+            </li>
+        </ul>
+
+        <h2>Přidat nové auto</h2>
+        <form th:action="@{/add-car}" method="post" th:object="${newCar}">
+            <div>
+                <label for="znacka">Jméno auta:</label>
+                <input type="text" id="znacka" name="znacka" th:field="*{znacka}" required>
+            </div>
+            <div>
+                <label for="model">Model auta:</label>
+                <input type="text" id="model" name="model" th:field="*{model}" required>
+            </div>
+             <div>
+                <label for="rok_vyroby">Rok výroby:</label>
+                <input type="number" id="rok_vyroby" name="rok_vyroby" th:field="*{rok_vyroby}" required>
+            </div>
+        	<div>
+                <label for="pocet_km">Počet km:</label>
+                <input type="number" id="pocet_km" name="pocet_km" th:field="*{pocet_km}" required>
+            </div>
+            <div>
+                <button type="submit">Přidat auto</button>
+            </div>
+        </form>
+    </main>
+</body>
+</html>

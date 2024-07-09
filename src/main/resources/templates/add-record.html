@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Servisní Kniha</title>
+<link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+	<header>
+		<h1>Přidat servisní záznam</h1>
+	</header>
+    <nav>
+        <a class="buttona" th:href="@{/}">Domů</a>
+        
+        <div th:if="${currentUser != null}" class="login-div">
+			<p>Uživatel: <a th:href="@{/account}" th:text="${currentUser}"></a></p>
+				<form class="My-form" th:action="@{/logout}" method="post">
+        			<button type="submit">Odhlásit se!</button>
+        		</form>
+        </div>
+    </nav>
+	<main>
+		<form th:action="@{/add-record}" method="post" th:object="${opravy}">
+			<div>
+				<label for="datum_opravy">Datum:</label> <input type="datetime-local"
+					id="datum_opravy" th:field="*{datum_opravy}" required>
+			</div>
+			<div>
+				<label for="popis_opravy">Popis:</label> <input type="text"
+					id="popis_opravy" th:field="*{popis_opravy}" required>
+			</div>
+			<div>
+				<label for="najezd_pri_oprave">Kilometry:</label> <input
+					type="number" id="najezd_pri_oprave"
+					th:field="*{najezd_pri_oprave}" required>
+			</div>
+			<div>
+				<label for="cena">Cena:</label> <input type="number" id="cena"
+					th:field="*{cena}" required>
+			</div>
+			<div>
+				<label for="opravar">Servisák:</label> <input type="text"
+					id="opravar" th:field="*{opravar}" required>
+			</div>
+			<div>
+				<label for="car">Auto:</label> <select id="car" th:field="*{car.id}"
+					required>
+					<option value="" disabled selected>Vyberte auto</option>
+					<option th:each="car : ${cars}" th:value="${car.id}"
+						th:text="${car.znacka} + ' ' + ${car.model}">Car Name</option>
+				</select>
+			</div>
+			<div>
+				<button type="submit">Přidat</button>
+			</div>
+		</form>
+	</main>
+</body>
+</html>
