@@ -12,4 +12,5 @@ import cz.filipunk.servicebook.entity.Opravy;
 public interface OpravyRepository extends JpaRepository<Opravy, Long> {
 	List<Opravy> findByCarId(Long carId);
 	List<Opravy> findByUzivatelId(Long userId);
+	void deleteById(Long id);
 }

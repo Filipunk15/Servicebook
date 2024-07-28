@@ -29,4 +29,7 @@ public class OpravaService {
     public List<Opravy> findByUzivatelId(Long userId) {
         return OpravyRepository.findByUzivatelId(userId);
     }
+    public void deleteById(Long id){
+    	OpravyRepository.deleteById(id);
+    }
 }

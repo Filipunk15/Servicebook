@@ -10,11 +10,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import cz.filipunk.servicebook.entity.Auta;
 import cz.filipunk.servicebook.entity.Opravy;
 import cz.filipunk.servicebook.entity.Users;
+import cz.filipunk.servicebook.repository.OpravyRepository;
 import cz.filipunk.servicebook.service.AutoService;
 import cz.filipunk.servicebook.service.OpravaService;
 import cz.filipunk.servicebook.service.UserService;
@@ -30,7 +32,7 @@ public class RecordsController {
 
 	@Autowired
 	private UserService user_service;
-
+	
 	@GetMapping("/add-record")
 	public String showAddRecordForm(Model model) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -76,6 +78,11 @@ public class RecordsController {
 	        model.addAttribute("currentUser", null);
 	    }
 	    return "index";
+	}
+	@GetMapping("/delete/{id}")
+	public String deleteUser(@PathVariable("id") Long id) {
+		opravy_service.deleteById(id);
+		return "redirect:/";
 	}
 
 }
