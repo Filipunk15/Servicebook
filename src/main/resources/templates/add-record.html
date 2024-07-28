@@ -22,7 +22,7 @@
 	<main>
 		<form th:action="@{/add-record}" method="post" th:object="${opravy}">
 			<div>
-				<label for="datum_opravy">Datum:</label> <input type="datetime-local"
+				<label for="datum_opravy">Datum:</label> <input type="date"
 					id="datum_opravy" th:field="*{datum_opravy}" required>
 			</div>
 			<div>

@@ -1,5 +1,6 @@
 package cz.filipunk.servicebook.entity;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import cz.filipunk.servicebook.entity.Auta;
@@ -17,7 +18,7 @@ public class Opravy {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 	
-   private LocalDateTime datum_opravy;
+   private LocalDate datum_opravy;
    private String popis_opravy;
    private String opravar;
    private int najezd_pri_oprave;
@@ -39,11 +40,11 @@ public class Opravy {
 		this.id = id;
 	}
 
-	public LocalDateTime getDatum_opravy() {
+	public LocalDate getDatum_opravy() {
 		return datum_opravy;
 	}
 
-	public void setDatum_opravy(LocalDateTime datum_opravy) {
+	public void setDatum_opravy(LocalDate datum_opravy) {
 		this.datum_opravy = datum_opravy;
 	}
 
