@@ -21,9 +21,7 @@ Chtěl bych v následujících verzích svou aplikaci ještě rozšířit, např
 	Notifikace v mobilu
 	Zlepšení designu webových stránek
 
-Pokud si ji zkusíte, určitě budu rád za konstruktivní kritiku, která mě posune zase o něco dál.
 
-Děkuji
 
 # Car Service Book - EN
 
@@ -47,6 +45,4 @@ In future versions, I plan to expand the application with features such as:
     Mobile notifications
     Enhancing the web design
 
-If you try it out, I would appreciate constructive feedback that will help me improve further.
 
-Thank you.
